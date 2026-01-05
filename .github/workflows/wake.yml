@@ -1,0 +1,31 @@
+name: Wake Streamlit Apps
+
+on:
+  schedule:
+    # Heure d'été (CEST) : mars → octobre
+    - cron: "0 8 * 3-10 *"
+    # Heure d'hiver (CET) : novembre → février
+    - cron: "0 9 * 11,12,1,2 *"
+
+  workflow_dispatch:
+
+jobs:
+  wake:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Run wake script
+        run: |
+          python wake.py
