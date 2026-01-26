@@ -2,11 +2,8 @@ name: Wake Streamlit Apps
 
 on:
   schedule:
-    # Heure d'été (CEST) : mars → octobre
     - cron: "0 8 * 3-10 *"
-    # Heure d'hiver (CET) : novembre → février
     - cron: "0 9 * 11,12,1,2 *"
-
   workflow_dispatch:
 
 jobs:
@@ -24,7 +21,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests
+          pip install playwright
+          playwright install --with-deps chromium
+        
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: 0
 
       - name: Run wake script
         run: |
