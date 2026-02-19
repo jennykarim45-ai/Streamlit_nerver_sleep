@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeo
 
 SITES = [
     "https://music-talent-radar-jek2.streamlit.app/",
-    https://des-essais-et-de-l-art.streamlit.app/,
+    "https://des-essais-et-de-l-art.streamlit.app/",
 ]
 
 # Fallback keywords
