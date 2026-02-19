@@ -18,6 +18,7 @@ KEYWORDS = [
     "run",
     "launch",
     "go",
+    "Yes, get this app back up!"
 ]
 
 # ---- Time logs ----
